@@ -1,5 +1,6 @@
 
-export default function Header() {
+export default function Header(props) {
+    console.log(props)
     return (
         <>
         <header>
@@ -11,7 +12,7 @@ export default function Header() {
                 </div>
                 <div>
                     <h4>
-                        User
+                        {(props.uName === "") ? "User" : props.uName }
                     </h4>
                 </div>
             </nav>

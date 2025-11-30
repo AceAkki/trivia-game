@@ -1,12 +1,14 @@
 export function Form (props) {
-
-    function handleSubmit (formData) {
-        console.log(formData.entries)
-    }
     return (
-        <form action={handleSubmit}>
+        <form action={props.func}>
             <label htmlFor="name">Name : </label>
-            <input id="name" type="text" required/>
+            <input 
+            id="name" 
+            type="text" 
+            name="name" 
+            placeholder="Name"
+            aria-label="Type Name"
+            required/>
             <button> Submit</button>
         </form>
     )

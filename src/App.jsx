@@ -6,15 +6,30 @@ import { Main } from "../components/MainSec"
 
 function App() {
   let [userName, setUserName] = useState("");
+  let [trivia, setTrivia] = useState(null);
 
-  function getUser(user) {
-    setUserName(prev => user);
+  async function handleSubmit(formData) {
+      const username = formData.get("name");
+      setUserName(prev => username);
+      await getData();
+  }
+
+  async function getData() {
+    try {
+      const response = await fetch("https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean");
+      if (response) {
+        const data = response.json();
+        setTrivia(await data);
+      }
+    } catch (error) {
+        console.log(error)
+    }
   }
   
   return (
     <>
-      <Header />
-      <Main formFunc={getUser}/>
+      <Header uName={userName}/>
+      <Main formFunc={handleSubmit} uName={userName} triviaData={trivia}/>
       <Footer />
     </>
   )

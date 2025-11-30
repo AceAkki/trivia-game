@@ -19,20 +19,39 @@ body {
   padding: 0;
 }
 
-header, main, footer {
-  margin: 1rem 3rem;
+header {
+  position: fixed;
+  top: 0;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  font-weight: 400;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-}
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 2rem;
 }
+
+main {
+  margin: 1rem 3rem;
+  padding: 5rem 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.77);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  padding: 1rem 3rem;
+  color: #1a1a1a;
+  font-weight: 400;
+}
+
 
 h1 {
   font-size: 3.2em;
@@ -72,6 +91,17 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.trivia-que {
+  margin: 2rem 1rem;
+  padding: 1rem 0.5rem;
+  border-bottom: 2px solid;
+}
+
+.trivia-que form {
+  display: flex;
+  gap: 0.5rem;
 }
 
 @media (prefers-color-scheme: light) {
